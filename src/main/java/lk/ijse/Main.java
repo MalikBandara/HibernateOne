@@ -12,11 +12,18 @@ public class Main {
 
     public static void main(String[] args) {
         StudentRepository studentRepository = new StudentRepository();
-        Student student = new Student();
-        student.setAddress("kandy");
-        StudentName studentName = new StudentName("Malik","Bandara");
-        student.setName(studentName);
-        Integer id = studentRepository.saveStudent(student);
-        System.out.println(id);
+//        Student student = new Student();
+//        student.setAddress("kandy");
+//        StudentName studentName = new StudentName("Malik","Bandara");
+//        student.setName(studentName);
+//        Integer id = studentRepository.saveStudent(student);
+//        System.out.println(id);
+
+          Student student = studentRepository.getStudent(1);
+        System.out.println(student.toString());
+
+
+
+
     }
 }

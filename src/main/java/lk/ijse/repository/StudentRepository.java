@@ -6,10 +6,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class StudentRepository {
-
+    Session session = SessionFactoryConfiguration.getInstance().getSession();
+    Transaction transaction = session.beginTransaction();
     public Integer saveStudent(Student student){
-        Session session = SessionFactoryConfiguration.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
+
+
         try {
             Integer id = (Integer) session.save(student);
             transaction.commit();
@@ -19,5 +20,9 @@ public class StudentRepository {
             return -1;
         }
 
+    }
+    public Student getStudent(Integer id){
+        Student student = session.get(Student.class , id);
+        return student;
     }
 }
