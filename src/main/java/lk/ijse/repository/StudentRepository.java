@@ -7,9 +7,9 @@ import org.hibernate.Transaction;
 
 public class StudentRepository {
     Session session = SessionFactoryConfiguration.getInstance().getSession();
-    Transaction transaction = session.beginTransaction();
-    public Integer saveStudent(Student student){
 
+    public Integer saveStudent(Student student){
+        Transaction transaction = session.beginTransaction();
 
         try {
             Integer id = (Integer) session.save(student);
@@ -24,5 +24,34 @@ public class StudentRepository {
     public Student getStudent(Integer id){
         Student student = session.get(Student.class , id);
         return student;
+    }
+
+    public void updateStudent(Student student){
+
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.update(student);
+            transaction.commit();
+
+        }catch (Exception e){
+            transaction.rollback();
+
+        }
+
+    }
+
+
+    public void deleteStudent(Student student){
+
+        Transaction transaction = session.beginTransaction();
+        try {
+            session.delete(student);
+            transaction.commit();
+
+        }catch (Exception e){
+            transaction.rollback();
+
+        }
+
     }
 }

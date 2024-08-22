@@ -20,7 +20,11 @@ public class Main {
 //        System.out.println(id);
 
           Student student = studentRepository.getStudent(1);
-        System.out.println(student.toString());
+          System.out.println(student.toString());
+
+          student.setAddress("panadura");
+          studentRepository.updateStudent(student);
+
 
 
 
