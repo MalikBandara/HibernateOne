@@ -2,6 +2,7 @@ package lk.ijse.Entity;
 
 
 import jakarta.persistence.*;
+import lk.ijse.embeded.StudentName;
 
 @Entity
 @Table(name = "student")
@@ -15,5 +16,7 @@ private int id;
 @Column(name = "address" , nullable = false)
 private String address;
 
+//composite attribute
+private StudentName name;
 
 }
