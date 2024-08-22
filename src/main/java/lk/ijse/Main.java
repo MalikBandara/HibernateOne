@@ -25,7 +25,7 @@ public class Main {
           student.setAddress("panadura");
           studentRepository.updateStudent(student);
 
-
+          studentRepository.deleteStudent(student);
 
 
 
